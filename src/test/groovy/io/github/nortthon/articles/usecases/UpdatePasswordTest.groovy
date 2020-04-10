@@ -30,7 +30,7 @@ class UpdatePasswordTest extends Specification {
         def user = "leonidas@sparta.rg"
         and: "want to change the password aAb12345 for the same password"
         def newPassword = "aAb12345"
-        userGateway.find(_ as String) >> new Credential(user: user, password: "aAb12345")
+        userGateway.find(_ as String) >> new Credential(user: user, password: newPassword)
 
         when: "he requests the exchange for a password equal to the current one"
         def useCase = new UpdatePassword(userGateway)
