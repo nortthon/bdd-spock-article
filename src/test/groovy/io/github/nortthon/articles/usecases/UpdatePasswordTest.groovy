@@ -9,7 +9,7 @@ class UpdatePasswordTest extends Specification {
     def userGateway = Mock(UserGateway)
 
     def "The user's password must be changed when prompted"() {
-        given: "a user logged in as leonidas@sparta.rg"
+        given: "a user logged in as leonidas@sparta.gr"
         def user = "leonidas@sparta.rg"
         userGateway.find(_ as String) >> new Credential(user: user, password: "1234ABCD")
         and: "want to change the password to 9A8B12ZA"
@@ -26,7 +26,7 @@ class UpdatePasswordTest extends Specification {
     }
 
     def "The new password must not be the same as the current one"() {
-        given: "a user logged in as leonidas@sparta.rg"
+        given: "a user logged in as leonidas@sparta.gr"
         def user = "leonidas@sparta.rg"
         and: "want to change the password aAb12345 for the same password"
         def newPassword = "aAb12345"
@@ -43,7 +43,7 @@ class UpdatePasswordTest extends Specification {
     }
 
     def "The new password must contain at least 8 characters"() {
-        given: "a user logged in as leonidas@sparta.rg"
+        given: "a user logged in as leonidas@sparta.gr"
         def user = "leonidas@sparta.rg"
         and: "want to change the password to 12345A with less than 8 characters"
         def newPassword = "12345A"
@@ -59,7 +59,7 @@ class UpdatePasswordTest extends Specification {
     }
 
     def "The new password must contain numbers and letters"() {
-        given: "a user logged in as leonidas@sparta.rg"
+        given: "a user logged in as leonidas@sparta.gr"
         def user = "leonidas@sparta.rg"
         and: "want to change the password to 12345678 using only numbers"
         def newPassword = "12345678"
